@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 // ===============================
 // 🔑 CONFIGURATION
 // ===============================
-const TOKEN = "EAAM57Ve9x3oBQ9UTUbWzqcis9NwkqL0etmfEwFQGovQXG3M5a3yvuz29CIN1Lai0fPTp2ZCU6WHxqpImy3vNwrDspQXwtILvG5XgpNMmpQForKqExHWxMhC5HA6LhKqlRFKyfjc9cRaSpkZAAvTxeYtqh6DRwMZC6ZCjTZABpOMpQMuEhdZC9oKEIaPAQDffW7NYENhYfKC0i0ZAtNUBXgx4jmpVoZCplklw0ZCeBLvtkjBbQnI8BI9255MxiHvT7v5A8OtmypdKD3mjVgl2DKsPTWS4h";
+const TOKEN = "EAAM57Ve9x3oBRBBpzc536L3ahgLuObnc0YJRrRitdBdeVXdV9ZA3DNE3ZCBzjA7KAQYBQxoQfZAwuG3i1egIOg9C1FB4vz0thuBSxxMT0g05CptHtwmGfi5GNOwNd76plANomyXgZCczauIAG0ZCUvkrpnqYctkx3mALp9ivl30d2cDt1H1wrov8NZBedD9TlRQwZDZD";
 const PHONE_NUMBER_ID = "1047943131730645";
 const VERIFY_TOKEN = "chase123";
 

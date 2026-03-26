@@ -17,7 +17,7 @@ const TOKEN = process.env.TOKEN;
 const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("Server running...");
 });
 

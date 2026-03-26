@@ -9,10 +9,16 @@ app.use(bodyParser.json());
 // ===============================
 // 🔑 CONFIGURATION
 // ===============================
-const TOKEN = "EAAM57Ve9x3oBRPShdwShzWrD1S3eMZC4Oe5vSnN2diMiHqRudLpyiLjxiuCFMi1wt0I7utiTiz9WVrv6XDdlSS2TPZA3ISBeY8V5AoWDEx5gO2tqUhspVfK5MpWuVMs5HhdkNCoa85KinPjfsb8mqGDjC2sZCiJ4k5tzZApfbd4Mj4MsNWIYGxGv3R4uglzHfAZDZD";
-const PHONE_NUMBER_ID = "1047943131730645";
-const VERIFY_TOKEN = "chase123";
+// const TOKEN = "EAAM57Ve9x3oBRPShdwShzWrD1S3eMZC4Oe5vSnN2diMiHqRudLpyiLjxiuCFMi1wt0I7utiTiz9WVrv6XDdlSS2TPZA3ISBeY8V5AoWDEx5gO2tqUhspVfK5MpWuVMs5HhdkNCoa85KinPjfsb8mqGDjC2sZCiJ4k5tzZApfbd4Mj4MsNWIYGxGv3R4uglzHfAZDZD";
+// const PHONE_NUMBER_ID = "1047943131730645";
+// const VERIFY_TOKEN = "chase123";
+const TOKEN = process.env.WhatsApp_Token;
+const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
+if (!WhatsApp_Token || !PHONE_NUMBER_ID || !VERIFY_TOKEN) {
+  console.error("Missing environment variables!");
+}
 const agent = new https.Agent({ family: 4 });
 
 // ===============================

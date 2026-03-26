@@ -16,6 +16,10 @@ const TOKEN = process.env.WhatsApp_Token;
 const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server running...");
+});
+
 if (!WhatsApp_Token || !PHONE_NUMBER_ID || !VERIFY_TOKEN) {
   console.error("Missing environment variables!");
 }

@@ -9,9 +9,13 @@ app.use(bodyParser.json());
 // ===============================
 // 🔑 CONFIGURATION
 // ===============================
-const TOKEN = "EAAM57Ve9x3oBQ1Gelwv8j27BjRN8hZCgvxZCAu30dFBV5uOKC2dXKsG4Ij3JZBXsyEiZAyZCNkNWT8CAxZAv8KpUdtKt1LhXCKX8fX4IspUXbPKllVDCiwcaSrVhZCLr5cYoo2r6Vbx5IhmpF6raR8eFNHu5jbuVrZCoG1jrFo7BvRtx1dxedj5k8wwlBK6dLXnKQMpimr1ZB1QzpFyROaYAIAOf8fBf8ymemTAS1pzJGiL3I59YpJtrV3UxbTCjg40VLm1Mto5bHlK6YP0w5xIdQQNpeWQZDZD";
-const PHONE_NUMBER_ID = "1047943131730645";
-const VERIFY_TOKEN = "chase123";
+// const TOKEN = "EAAM57Ve9x3oBQ1Gelwv8j27BjRN8hZCgvxZCAu30dFBV5uOKC2dXKsG4Ij3JZBXsyEiZAyZCNkNWT8CAxZAv8KpUdtKt1LhXCKX8fX4IspUXbPKllVDCiwcaSrVhZCLr5cYoo2r6Vbx5IhmpF6raR8eFNHu5jbuVrZCoG1jrFo7BvRtx1dxedj5k8wwlBK6dLXnKQMpimr1ZB1QzpFyROaYAIAOf8fBf8ymemTAS1pzJGiL3I59YpJtrV3UxbTCjg40VLm1Mto5bHlK6YP0w5xIdQQNpeWQZDZD";
+// const PHONE_NUMBER_ID = "1047943131730645";
+// const VERIFY_TOKEN = "chase123";
+
+const TOKEN = process.env.TOKEN;
+const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 const agent = new https.Agent({ family: 4 });
 

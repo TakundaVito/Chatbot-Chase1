@@ -109,11 +109,10 @@ const pickupDetails = {
 // Destination details for tracking
 const destinationDetails = {
     'Harare': {
-        dropPoint: 'Harare Main Terminal',
-        address: 'Robert Mugabe Road, Opposite Harare Gardens',
-        contact: 'Agent Tinashe',
-        phone: '+263 78 516 8309',
-        whatsapp: 'https://wa.me/263785168309'
+        location: 'Jameson Hotel along Park Street',
+        time: '9:00 – 13:00',
+        contact: '+263 77 741 6664',
+        whatsapp: 'https://wa.me/263777416664'
     },
     'Norton': {
         dropPoint: 'Karina',

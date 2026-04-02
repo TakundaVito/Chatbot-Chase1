@@ -1,3 +1,6 @@
+
+
+
 const express = require("express");
 const axios = require("axios");
 const bodyParser = require("body-parser");
@@ -13,6 +16,7 @@ app.use(bodyParser.json());
 // const PHONE_NUMBER_ID = "1047943131730645";
 // const VERIFY_TOKEN = "chase123";
 
+
 const TOKEN = process.env.TOKEN;
 const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
@@ -23,9 +27,9 @@ const agent = new https.Agent({ family: 4 });
 // 🤖 BOT MODE & COEXISTENCE
 // ===============================
 let botMode = true;
-let adminNumber = "263775837909";          // General admin for courier/tracking
-let bikeAdminNumber = "263785168309";      // Tadiwanashe Marufu – bike deliveries
-let taxiAdminNumber = "263775837909";      // Taxi to Gweru (can change to any number)
+let adminNumber = "+263 77 581 3837";          // General admin for courier/tracking
+let bikeAdminNumber = "+263 78 516 8309";      // Tadiwanashe Marufu – bike deliveries
+let taxiAdminNumber = "+263 77 581 3837";      // Taxi to Gweru
 
 const SESSION_TIMEOUT = 10 * 60 * 1000;
 let userLastActivity = {};
@@ -65,32 +69,32 @@ const pickupDetails = {
     'Norton': {
         location: 'Karina Main Bus Stop',
         time: '14:14 – 14:30',
-        contact: '263785168309',
+        contact: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Chegutu': {
         location: 'Engen Garage',
         time: '15:00 – 15:30',
-        contact: '263785168309',
+        contact: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Kadoma': {
         location: 'Waverly Bus stop (NEXT TO THE STAGE)',
         time: '16:00 – 16:30',
-        contact: '263785168309',
+        contact: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Kwekwe': {
         location: 'Eat n Lick TOTAL GARAGE',
         time: '17:00 – 17:30',
-        contact: '0781178955',
+        contact: '+263 78 117 8955',
         whatsapp: 'https://wa.me/263781178955'
     },
     'Gweru': {
         location: 'TOPSY TIM MALL, Shop 10',
         address: 'Along 6th Street (old CLUB UPTOWN), opposite BETHEL CLINIC',
         time: '18:15',
-        contact: '0781178955',
+        contact: '+263 78 117 8955',
         whatsapp: 'https://wa.me/263781178955'
     },
     'Bulawayo': {
@@ -108,42 +112,42 @@ const destinationDetails = {
         dropPoint: 'Harare Main Terminal',
         address: 'Robert Mugabe Road, Opposite Harare Gardens',
         contact: 'Agent Tinashe',
-        phone: '263785168309',
+        phone: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Norton': {
         dropPoint: 'Karina',
         address: 'Main Bus Stop',
         contact: 'Agent Michael',
-        phone: '263785168309',
+        phone: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Chegutu': {
         dropPoint: 'Engen Garage',
         address: 'Along Harare-Bulawayo Road',
         contact: 'Agent Tinashe',
-        phone: '263785168309',
+        phone: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Kadoma': {
         dropPoint: 'Waverly Bus stop',
         address: 'NEXT TO THE STAGE',
         contact: 'Agent Tinashe',
-        phone: '263785168309',
+        phone: '+263 78 516 8309',
         whatsapp: 'https://wa.me/263785168309'
     },
     'Kwekwe': {
         dropPoint: 'Eat n Lick TOTAL GARAGE',
         address: 'Main Road',
         contact: 'Agent Tinashe',
-        phone: '0781178955',
+        phone: '+263 78 117 8955',
         whatsapp: 'https://wa.me/263781178955'
     },
     'Gweru': {
         dropPoint: 'TOPSY TIM MALL',
         address: 'Along 6th Street (old CLUB UPTOWN), opposite BETHEL CLINIC, Shop 10',
         contact: 'Gweru Office',
-        phone: '0781178955',
+        phone: '+263 78 117 8955',
         whatsapp: 'https://wa.me/263781178955'
     },
     'Bulawayo': {
@@ -157,13 +161,13 @@ const destinationDetails = {
 };
 
 const agents = {
-    'Harare': { name: 'Harare Agent', number: '263785168309', whatsapp: 'https://wa.me/263785168309' },
-    'Norton': { name: 'Harare Agent', number: '263785168309', whatsapp: 'https://wa.me/263785168309' },
-    'Chegutu': { name: 'Harare Agent', number: '263785168309', whatsapp: 'https://wa.me/263785168309' },
-    'Kadoma': { name: 'Harare Agent', number: '263785168309', whatsapp: 'https://wa.me/263785168309' },
-    'Kwekwe': { name: 'Gweru Agent', number: '0781178955', whatsapp: 'https://wa.me/263781178955' },
-    'Gweru': { name: 'Gweru Agent', number: '0781178955', whatsapp: 'https://wa.me/263781178955' },
-    'Bulawayo': { name: 'Bulawayo Agent', number: '263775018137', whatsapp: 'https://wa.me/263775018137' }
+    'Harare': { name: 'Harare Agent', number: '+263 78 516 8309', whatsapp: 'https://wa.me/263785168309' },
+    'Norton': { name: 'Harare Agent', number: '+263 78 516 8309', whatsapp: 'https://wa.me/263785168309' },
+    'Chegutu': { name: 'Harare Agent', number: '+263 78 516 8309', whatsapp: 'https://wa.me/263785168309' },
+    'Kadoma': { name: 'Harare Agent', number: '+263 78 516 8309', whatsapp: 'https://wa.me/263785168309' },
+    'Kwekwe': { name: 'Gweru Agent', number: '+263 78 117 8955', whatsapp: 'https://wa.me/263781178955' },
+    'Gweru': { name: 'Gweru Agent', number: '+263 78 117 8955', whatsapp: 'https://wa.me/263781178955' },
+    'Bulawayo': { name: 'Bulawayo Agent', number: '+263 77 501 8137', whatsapp: 'https://wa.me/263775018137' }
 };
 
 // Bike price list (CBD to suburbs)
@@ -232,7 +236,7 @@ const translations = {
         about: "ℹ️ About Us",
         aboutText: "Chase the transporter is a trusted courier service operating along the Harare–Bulawayo route. We offer reliable parcel delivery with daily scheduled runs.",
         priceList: "💰 *Price List*\n\n• Small parcel (<5kg): $5\n• Medium parcel (5-10kg): $10\n• Large parcel (10-20kg): $15\n• Phone/Laptop: $10 flat rate\n• Bike Delivery (Harare only): Prices vary by zone – see Bike Delivery option for details.",
-        officeLocations: "📍 *Our Offices*\n\n*BULAWAYO*\nMAIN STREET PLAZA, Shop 14\nAsk for PAMELA\n📞 +263 77 501 8137\n\n*GWERU*\nTOPSY TIM MALL, Shop 10\n📞 0781178955",
+        officeLocations: "📍 *Our Offices*\n\n*BULAWAYO*\nMAIN STREET PLAZA, Shop 14\nAsk for PAMELA\n📞 +263 77 501 8137\n\n*GWERU*\nTOPSY TIM MALL, Shop 10\n📞 +263 78 117 8955",
         courierPickup: "📍 Where will you be dropping off your parcel?",
         pickupInfo: "📦 *Pickup Location Details*\n\n📍 *Location:* {location}\n🕒 *Time:* {time}\n📞 *Contact:* {contact}\n\nPlease meet our agent at the above location during the specified time.\n\nClick to chat: {whatsapp}",
         trackPrompt: "🔍 Select destination to track your parcel:",
@@ -272,8 +276,102 @@ const translations = {
         noUserFound: "❌ No user found with that number.",
         invalidCommand: "❌ Invalid command. Use /set user [number] bot|manual"
     },
-    sn: { /* omitted for brevity, same as before */ },
-    nd: { /* omitted for brevity, same as before */ }
+    sn: {
+        welcome: "👋 Mhoro! Ini ndiri chase the transporter. Nyora 'Hi' kuti utange.",
+        languageSelect: "Sarudza mutauro wako:",
+        mainMenu: "Tinokubatsira sei nhasi?",
+        courier: "📦 Basa Rekutumira",
+        track: "🔍 Tsvaga Pasuru",
+        bike: "🏍️ Kutumira Nemudhudhudhu",
+        taxi: "🚖 Tekisi kuenda Gweru",
+        price: "💰 Mitengo",
+        location: "📍 Mahofisi Edu",
+        agent: "👤 Taura ne Mumiriri",
+        about: "ℹ️ Nezvedu",
+        aboutText: "Chase the transporter ibasa rekutumira zvinhu rakavimbika rinoshandira munzira yeHarare–Bulawayo.",
+        priceList: "💰 *Mitengo*\n\n• Pasuru diki (<5kg): $5\n• Pasuru yepakati (5-10kg): $10\n• Pasuru hombe (10-20kg): $15\n• Foni/Kombiyuta: $10\n• Kutumira Nemudhudhudhu (Harare): Mitengo inosiyana nenzvimbo",
+        officeLocations: "📍 *Mahofisi Edu*\n\n*BULAWAYO*\nMAIN STREET PLAZA, Shop 14\nBvunza PAMELA\n📞 +263 77 501 8137\n\n*GWERU*\nTOPSY TIM MALL, Shop 10\n📞 +263 78 117 8955",
+        courierPickup: "📍 Uchasiya pasuru yako kupi?",
+        pickupInfo: "📦 *Nzvimbo Yekusiya Pasuru*\n\n📍 *Nzvimbo:* {location}\n🕒 *Nguva:* {time}\n📞 *Bata:* {contact}\n\nNdapota sangana nemumiriri wedu panzvimbo iyi panguva yakatarwa.\n\nDzvanya kuti utaure: {whatsapp}",
+        trackPrompt: "🔍 Sarudza kwaunoenda kutsvaga pasuru yako:",
+        trackingInfo: "🔍 *Ruzivo rweKutsvaga Pasuru*\n\n📍 *Kuenda:* {destination}\n🏢 *Nzvimbo Yokutora:* {dropPoint}\n📮 *Kero:* {address}\n📞 *Mumiriri:* {contact}\n📱 Dzvanya kuti utaure: {whatsapp}\n\n📅 *Zuva Rokutora:* Mangwana\n🕒 *Nguva:* Kubva 8:30 AM\n\n⚠️ *Mari Yekuchengetera:* $2 kana isina kutotorwa mukati maawa 36",
+        bikePrompt: "🏍️ *Kutumira Nemudhudhudhu (Harare)*\n\nNyora kwaunoenda (semuenzaniso, Avondale, Borrowdale):",
+        bikePrice: "✅ Kuendesa kubva CBD kuenda *{area}* kunodhura {price}",
+        bikeForward: "Chikumbiro chako chatumirwa kuchikwata chedu chekutumira nemudhudhudhu. Mumiriri achakubata nekukurumidza.",
+        taxiPrompt: "🚖 *Tekisi kuenda Gweru*\n\nMutengo: $10 pamunhu.\nVanhu vangani? (1-9)",
+        taxiConfirm: "✅ Tekisi yakabhukirwa vanhu {people}. Mari: ${total}\n\nChikumbiro chako chatumirwa kuchikwata chedu chetekisi. Mumiriri achakubata.",
+        agentSelect: "Sarudza nzvimbo:",
+        agentContact: "👤 *{name}*\n📞 {number}\n\n📱 Dzvanya: {whatsapp}",
+        backToMenu: "🏠 Kudzokera kumenyu...",
+        operationCancelled: "❌ Basa rakamiswa.",
+        invalidSelection: "❌ Sarudza sarudzo inoshanda.",
+        confirm: "✅ Enderera",
+        change: "✏️ Shandura",
+        cancel: "❌ Kanzura",
+        continue: "📦 Enderera",
+        viewDetails: "📍 Ona Nzvimbo",
+        newRequest: "🔄 Chitsva",
+        trackAnother: "🔍 Tsvaga Imwe",
+        sessionTimeout: "⏰ Nguva yakapfuura. Ngatitangezve!",
+        help: "📋 *Mirairo*\n\n• menu - Dzokera\n• cancel - Kanzura\n• help - Rubatsiro",
+        botOffMessage: "",
+        botOnMessage: "🤖 Bot yabatidzwa uye ichapindura otomatiki.",
+        botOff: "🤖 Bot YADZIMWA (silent mode). Meseji dzese dzichiendeswa kune admin.",
+        botOn: "🤖 Bot YABATIDZWA. Mhinduro dzotomatiki dziripo.",
+        botStatus: "🤖 *Mamiriro eBot:* {status}\n\n{statusMessage}",
+        botStatusOn: "Bot YABATIDZWA uye iri kupindura otomatiki.",
+        botStatusOff: "Bot YADZIMWA (silent mode). Meseji dzevatengi dziri kuendeswa kune admin.",
+        botAlreadyOff: "🤖 Bot yatove OFF.",
+        botAlreadyOn: "🤖 Bot yatove ON."
+    },
+    nd: {
+        welcome: "👋 Sawubona! Ngingu-chase the transporter. Thayipha 'Hi' ukuqala.",
+        languageSelect: "Khetha ulimi:",
+        mainMenu: "Singakusiza kanjani?",
+        courier: "📦 Ukuthumela",
+        track: "🔍 Landelela",
+        bike: "🏍️ Izithuthuthu",
+        taxi: "🚖 Itekisi eGweru",
+        price: "💰 Amanani",
+        location: "📍 Amahhovisi",
+        agent: "👤 Ummeleli",
+        about: "ℹ️ Mayelana",
+        aboutText: "I-chase the transporter yinkonzo yokuthumela izinto ethembekileyo esebenza emzileni weHarare–Bulawayo.",
+        priceList: "💰 *Amanani*\n\n• Iphasela elincane (<5kg): $5\n• Iphasela eliphakathi (5-10kg): $10\n• Iphasela elikhulu (10-20kg): $15\n• Ifoni/Laptop: $10\n• Izithuthuthu (Harare): Amanani ahluka ngendawo",
+        officeLocations: "📍 *Amahhovisi*\n\n*BULAWAYO*\nMAIN STREET PLAZA, Shop 14\nBuza uPAMELA\n📞 +263 77 501 8137\n\n*GWERU*\nTOPSY TIM MALL, Shop 10\n📞 +263 78 117 8955",
+        courierPickup: "📍 Uzoshiya kuphi iphasela lakho?",
+        pickupInfo: "📦 *Indawo Yokushiya Iphasela*\n\n📍 *Indawo:* {location}\n🕒 *Isikhathi:* {time}\n📞 *Xhumana:* {contact}\n\nSicela uhlangane nommeleli wethu kule ndawo ngesikhathi esishiwo.\n\nChofoza ukuze ukhulume: {whatsapp}",
+        trackPrompt: "🔍 Khetha lapho uya khona ukulandelela iphasela:",
+        trackingInfo: "🔍 *Ukulandelela Iphasela*\n\n📍 *Ukuya:* {destination}\n🏢 *Indawo Yokuthatha:* {dropPoint}\n📮 *Ikheli:* {address}\n📞 *Ummeleli:* {contact}\n📱 Chofoza ukuze ukhulume: {whatsapp}\n\n📅 *Usuku:* Kusasa\n🕒 *Isikhathi:* Kusukela ngo 8:30 AM\n\n⚠️ *Imali Yokugcina:* $2 uma ingathathwanga",
+        bikePrompt: "🏍️ *Izithuthuthu (Harare)*\n\nFaka indawo oya khona (isibonelo, Avondale, Borrowdale):",
+        bikePrice: "✅ Ukulethwa kusuka CBD ukuya *{area}* kubiza {price}",
+        bikeForward: "Isicelo sakho sithunyelwe ethimbeni lethu lezithuthuthu. Ummeleli uzakuthinta maduzane.",
+        taxiPrompt: "🚖 *Itekisi eGweru*\n\nInani: $10 umuntu.\nBangaki abantu? (1-9)",
+        taxiConfirm: "✅ Itekisi ibhukhiwe abantu {people}. Inani: ${total}\n\nIsicelo sakho sithunyelwe ethimbeni lethu letekisi. Ummeleli uzakuthinta.",
+        agentSelect: "Khetha indawo:",
+        agentContact: "👤 *{name}*\n📞 {number}\n\n📱 Chofoza: {whatsapp}",
+        backToMenu: "🏠 Ukubuyela emenywini...",
+        operationCancelled: "❌ Umsebenzi ukhanseliwe.",
+        invalidSelection: "❌ Khetha okusebenzayo.",
+        confirm: "✅ Qhubeka",
+        change: "✏️ Shintsha",
+        cancel: "❌ Khansela",
+        continue: "📦 Qhubeka",
+        viewDetails: "📍 Imininingwane",
+        newRequest: "🔄 Elisha",
+        trackAnother: "🔍 Landelela Okunye",
+        sessionTimeout: "⏰ Isikhathi siphelile. Ake siqale phansi!",
+        help: "📋 *Imiyalo*\n\n• menu - Buyela\n• cancel - Khansela\n• help - Usizo",
+        botOffMessage: "",
+        botOnMessage: "🤖 I-bot ivuliwe futhi izophendula ngokuzenzakalelayo.",
+        botOff: "🤖 I-bot IVALIWE (silent mode). Yonke imiyalezo ithunyelwa kummeleli.",
+        botOn: "🤖 I-bot IVULIWE. Izimpendulo ezizenzakalelayo ziyasebenza.",
+        botStatus: "🤖 *Isimo se-bot:* {status}\n\n{statusMessage}",
+        botStatusOn: "I-bot IVULIWE futhi iphendula ngokuzenzakalelayo.",
+        botStatusOff: "I-bot IVALIWE (silent mode). Yonke imiyalezo yamakhasimende ithunyelwa kummeleli.",
+        botAlreadyOff: "🤖 I-bot isivele IVALIWE.",
+        botAlreadyOn: "🤖 I-bot isivele IVULIWE."
+    }
 };
 
 // Main menu options
@@ -334,13 +432,18 @@ function t(userId, key, replacements = {}) {
 
 // Forward to specific admin
 async function forwardToAdmin(adminNum, from, message) {
+    // Clean phone number for WhatsApp (remove spaces and +)
+    const cleanNumber = adminNum.replace(/\s/g, '').replace('+', '');
     const adminMsg = `📨 *NEW REQUEST*\n\n👤 Customer: ${from}\n💬 ${message}\n\n⏰ Time: ${new Date().toLocaleString()}\n\n📝 *To reply:* /reply ${from} [your message]`;
-    await sendMessage(adminNum, adminMsg);
+    await sendMessage(cleanNumber, adminMsg);
     console.log(`📨 Message forwarded to ${adminNum} from ${from}`);
 }
 
 function isAdmin(number) {
-    return number === adminNumber;
+    // Clean the number for comparison (remove spaces and +)
+    const cleanNumber = number.replace(/\s/g, '').replace('+', '');
+    const cleanAdmin = adminNumber.replace(/\s/g, '').replace('+', '');
+    return cleanNumber === cleanAdmin;
 }
 
 function updateUserActivity(userId) {
@@ -851,6 +954,7 @@ app.listen(PORT, () => {
     console.log("  /status user [number]     - Show user's mode");
     console.log("  /reply [number] [msg]     - Reply to a customer");
     console.log("====================================\n");
+    console.log("💡 All phone numbers are formatted as +263 XX XXX XXXX");
     console.log("💡 Bike delivery requests are forwarded to the bike admin.");
     console.log("💡 Taxi to Gweru requests are forwarded to the taxi admin.\n");
 });

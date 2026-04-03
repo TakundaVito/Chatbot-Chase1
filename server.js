@@ -27,9 +27,9 @@ const agent = new https.Agent({ family: 4 });
 // 🤖 BOT MODE & COEXISTENCE
 // ===============================
 let botMode = true;
-let adminNumber = "+263 77 741 6664";          // General admin for courier/tracking
-let bikeAdminNumber = "+263 77 583 7909 ";      // Tadiwanashe Marufu – bike deliveries
-let taxiAdminNumber = "+263 77 581 3837";      // Taxi to Gweru
+let adminNumber = "+263777416664";          // General admin for courier/tracking
+let bikeAdminNumber = "+263775837909 ";      // Tadiwanashe Marufu – bike deliveries
+let taxiAdminNumber = "+263775837909";      // Taxi to Gweru
 
 const SESSION_TIMEOUT = 10 * 60 * 1000;
 let userLastActivity = {};

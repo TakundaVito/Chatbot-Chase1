@@ -28,8 +28,8 @@ const agent = new https.Agent({ family: 4 });
 // ===============================
 let botMode = true;
 let adminNumber = "+263777416664";          // General admin for courier/tracking
-let bikeAdminNumber = "+263775837909 ";      // Tadiwanashe Marufu – bike deliveries
-let taxiAdminNumber = "+263775837909";      // Taxi to Gweru
+let bikeAdminNumber = "+263777416664 ";      // Tadiwanashe Marufu – bike deliveries
+let taxiAdminNumber = "+263777416664";      // Taxi to Gweru
 
 const SESSION_TIMEOUT = 10 * 60 * 1000;
 let userLastActivity = {};
